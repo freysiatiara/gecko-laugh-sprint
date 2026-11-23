@@ -10,6 +10,9 @@ LINE = "I bought a planner to organize my life; it is now the most organized lis
 
 
 def output_path():
+    full_path = os.environ.get("ENTRY_OUTPUT")
+    if full_path:
+        return full_path
     out_dir = os.environ.get("OUTPUT_DIR") or os.environ.get("MAKEFUN_OUTPUT_DIR")
     if out_dir:
         return os.path.join(out_dir, "entry.txt")
